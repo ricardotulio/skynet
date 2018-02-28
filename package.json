@@ -1,0 +1,10 @@
+{
+  "name": "skynet",
+  "version": "0.1.0",
+  "description": "A simple chatbot API to Skype",
+  "main": "index.js",
+  "repository": "https://github.com/ricardotulio/skynet",
+  "author": "Ricardo Ledo de Tulio <ledo.tulio@gmail.com>",
+  "license": "MIT",
+  "private": false
+}
