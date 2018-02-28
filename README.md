@@ -1,4 +1,4 @@
-<img src="https://pbs.twimg.com/media/DV6W875XcAUEWH5.jpg" width="100px" align="left"/>
+<img src="https://pbs.twimg.com/media/DV6W875XcAUEWH5.jpg" width="110px" align="left"/>
 
 # Skynet
 
