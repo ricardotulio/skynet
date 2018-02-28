@@ -11,4 +11,20 @@ module.exports = {
   output: {
     filename: 'index.js',
   },
+  module: {
+    rules: [
+      {
+        test: /\.js$/i,
+        exclude: [/node_modules/],
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: [ 'env' ],
+            },
+          },
+        ],
+      },
+    ],
+  },
 }
