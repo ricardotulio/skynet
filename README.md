@@ -1,6 +1,7 @@
 <img src="https://pbs.twimg.com/media/DV6W875XcAUEWH5.jpg" width="110px" align="left"/>
 
 # Skynet
+[![Build Status](https://travis-ci.org/ricardotulio/skynet.svg?branch=master)](https://travis-ci.org/ricardotulio/skynet) [![Coverage Status](https://coveralls.io/repos/github/ricardotulio/skynet/badge.svg?branch=master)](https://coveralls.io/github/ricardotulio/skynet?branch=master) [![Maintainability](https://api.codeclimate.com/v1/badges/f4af52f9c2d4d9297d85/maintainability)](https://codeclimate.com/github/ricardotulio/skynet/maintainability)
 
 A simple chatbot for Skype.
 
