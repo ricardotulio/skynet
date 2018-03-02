@@ -1,0 +1,18 @@
+sudo: required
+dist: trusty
+language: node_js
+node_js:
+  - "8"
+env:
+  - YARN_VERSION=1.5.1
+
+before_script:
+  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version $YARN_VERSION
+  - export PATH="$HOME/o.yarn/bin:$PATH"
+
+install:
+  - yarn install
+
+script:
+  - yarn test
+  - yarn lint
