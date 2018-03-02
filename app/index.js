@@ -1,3 +1,3 @@
-import message from './message'
+import sayHello from './sayHello'
 
-console.log(message)
+console.log(sayHello())
