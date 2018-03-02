@@ -5,6 +5,8 @@ const fs = require('fs')
 const appPath = fs.realpathSync(process.cwd())
 
 module.exports = {
+  target: 'node',
+  devtool: 'source-map',
   entry: {
     index: glob.sync('./app/**/*.js'),
   },
