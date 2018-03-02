@@ -3,6 +3,9 @@
   "plugins": [
     "jest"
   ],
+  "rules": {
+      "semi": [2, "never"]
+  },
   "env": {
     "jest": true
   }
