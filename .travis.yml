@@ -16,6 +16,3 @@ install:
 script:
   - yarn test
   - yarn lint
-
-after_success:
-  - travis_retry yarn coverage
