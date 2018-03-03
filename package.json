@@ -18,23 +18,17 @@
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-jest": "^21.12.2",
-    "jest": "^22.4.2",
-    "webpack": "^4.0.1",
-    "webpack-cli": "^2.0.9",
-    "webpack-dev-server": "^3.1.0"
+    "jest": "^22.4.2"
   },
   "scripts": {
     "test": "jest",
     "lint": "eslint app/ tests/",
-    "build": "webpack-cli --config=config/webpack.config.js --mode=production",
-    "start": "node dist/index.js",
+    "build": "rm -rf build && npx babel app --out-dir build",
+    "start": "node build/index.js",
     "coverage": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "dependencies": {
-    "bluebird": "^3.5.1",
-    "botbuilder": "^3.14.0",
     "node-env-file": "^0.1.8",
-    "ramda": "^0.25.0",
     "restify": "^6.3.4"
   }
 }
