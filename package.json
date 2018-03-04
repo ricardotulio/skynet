@@ -28,8 +28,10 @@
     "coverage": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "dependencies": {
+    "bluebird": "^3.5.1",
     "botbuilder": "^3.14.0",
     "node-env-file": "^0.1.8",
+    "ramda": "^0.25.0",
     "restify": "^6.3.4"
   }
 }
