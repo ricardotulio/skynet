@@ -8,29 +8,26 @@ var _restify = require('restify');
 
 var _restify2 = _interopRequireDefault(_restify);
 
-var _ramda = require('ramda');
+var _botbuilder = require('botbuilder');
 
 var _paths = require('../config/paths');
-
-var _botBuilder = require('./botBuilder');
-
-var _botBuilder2 = _interopRequireDefault(_botBuilder);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (0, _nodeEnvFile2.default)((0, _paths.basePath)() + '/.env');
 
-var credentials = {
-  appId: process.env.MICROSOFT_APP_ID,
-  appPassword: process.env.MICROSOFT_APP_PASSWORD
-};
-
-var bot = _botBuilder2.default.build(credentials);
-
 var server = _restify2.default.createServer();
 server.listen(process.env.PORT || 3987, function () {
-  console.log('%s listening on %s', server.name, server.url);
+  console.log('% listening on %s', server.name, server.url);
 });
 
-var connector = (0, _ramda.path)(['connectors', '*'], bot);
-server.post('/v1/messages', connector.listen());
+var connector = new _botbuilder.ChatConnector({
+  appId: process.env.MICROSOFT_APP_ID,
+  appPassword: process.env.MICROSOFT_APP_PASSWORD
+});
+
+server.post('/api/messages', connector.listen());
+
+var bot = new _botbuilder.UniversalBot(connector, function (session) {
+  session.send('You said %s', session.message.text);
+});
