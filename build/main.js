@@ -4,26 +4,33 @@ var _nodeEnvFile = require('node-env-file');
 
 var _nodeEnvFile2 = _interopRequireDefault(_nodeEnvFile);
 
-var _bluebird = require('bluebird');
+var _restify = require('restify');
 
-var _bluebird2 = _interopRequireDefault(_bluebird);
+var _restify2 = _interopRequireDefault(_restify);
+
+var _ramda = require('ramda');
 
 var _paths = require('../config/paths');
 
-var _buildConnector = require('./buildConnector');
+var _botBuilder = require('./botBuilder');
 
-var _buildConnector2 = _interopRequireDefault(_buildConnector);
-
-var _buildBot = require('./buildBot');
-
-var _buildBot2 = _interopRequireDefault(_buildBot);
-
-var _buildBotApi = require('./buildBotApi');
-
-var _buildBotApi2 = _interopRequireDefault(_buildBotApi);
+var _botBuilder2 = _interopRequireDefault(_botBuilder);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (0, _nodeEnvFile2.default)((0, _paths.basePath)() + '/.env');
 
-_bluebird2.default.resolve().then(_buildConnector2.default).then(_buildBot2.default).then(_buildBotApi2.default);
+var credentials = {
+  appId: process.env.MICROSOFT_APP_ID,
+  appPassword: process.env.MICROSOFT_APP_PASSWORD
+};
+
+var bot = _botBuilder2.default.build(credentials);
+
+var server = _restify2.default.createServer();
+server.listen(process.env.PORT || 3987, function () {
+  console.log('%s listening on %s', server.name, server.url);
+});
+
+var connector = (0, _ramda.path)(['connectors', '*'], bot);
+server.post('/v1/messages', connector.listen());
