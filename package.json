@@ -25,7 +25,8 @@
     "lint": "eslint app/ tests/",
     "build": "npx babel app --out-dir build",
     "start": "node build/main.js",
-    "coverage": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+    "coverage": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "watch": "nodemon ./app/main.js --exec babel-node"
   },
   "dependencies": {
     "bluebird": "^3.5.1",
