@@ -16,7 +16,7 @@ const bot = botBuilder.build(credentials)
 const connector = path(['connectors', '*'], bot)
 
 const server = restify.createServer()
-server.listen(process.env.PORT || 3987, () => {
+server.listen(process.env.PORT || 3000, () => {
   console.log('%s listening on %s', server.name, server.url)
 })
 
