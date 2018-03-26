@@ -18,7 +18,8 @@
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-jest": "^21.12.2",
-    "jest": "^22.4.2"
+    "jest": "^22.4.2",
+    "nodemon": "^1.17.2"
   },
   "scripts": {
     "test": "jest",
