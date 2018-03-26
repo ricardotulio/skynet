@@ -1,6 +1,15 @@
 version: '3'
 
 services:
+  nginx:
+    image: nginx
+    volumes:
+      - ./infra/nginx/etc/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 8000:80
+    depends_on:
+      - bot
+
   bot:
     build:
       context: .
@@ -8,10 +17,3 @@ services:
     volumes:
       - ./:/app
     env_file: .env
-
-  nginx:
-    image: nginx
-    volumes:
-      - ./infra/nginx/etc/nginx.conf:/etc/nginx/nginx.conf
-    ports:
-      - 8000:80
